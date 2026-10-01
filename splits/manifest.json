@@ -1,0 +1,56 @@
+{
+  "version": "2.0",
+  "purge_gap_seconds": 1800,
+  "entity_key": "entity_key (src_ip / host-pair for malware)",
+  "total_records": 152620,
+  "realized_ratios": {
+    "train_ratio": 0.7518,
+    "val_ratio": 0.117,
+    "test_ratio": 0.1312
+  },
+  "counts": {
+    "train": 114737,
+    "val": 17861,
+    "test": 20022
+  },
+  "class_distribution": {
+    "train": {
+      "benign": 26988,
+      "exfiltration": 19033,
+      "ddos": 18290,
+      "recon_scan": 15874,
+      "beaconing": 14000,
+      "encrypted_malware": 10658,
+      "dga_tunnel": 9894
+    },
+    "val": {
+      "benign": 7099,
+      "recon_scan": 5217,
+      "encrypted_malware": 2556,
+      "dga_tunnel": 1771,
+      "ddos": 703,
+      "beaconing": 288,
+      "exfiltration": 227
+    },
+    "test": {
+      "recon_scan": 7440,
+      "benign": 7152,
+      "encrypted_malware": 2287,
+      "dga_tunnel": 1797,
+      "ddos": 710,
+      "exfiltration": 348,
+      "beaconing": 288
+    }
+  },
+  "leakage_verification": {
+    "train_val_entity_overlap": 0,
+    "train_test_entity_overlap": 0,
+    "val_test_entity_overlap": 0,
+    "zero_leakage_guaranteed": true
+  },
+  "file_hashes": {
+    "train_sha256": "781ea2b45c410ba6dcffb4be3426d7f89334245b9702873a8ce8e607b7b9ab00",
+    "val_sha256": "c82eea78d617417627c064b5a1859933d21b4bd5206cf5562967dfc9e7a1f5cb",
+    "test_sha256": "626e25583cd6d6e76cee5b6aede372a84b6151c2d20794c48e40aa84b4c59b05"
+  }
+}

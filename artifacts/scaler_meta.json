@@ -1,0 +1,29 @@
+{
+  "version_hash": "8bc5aa02e7b23210",
+  "feature_count": 22,
+  "feature_names": [
+    "duration",
+    "packet_count",
+    "byte_count",
+    "packet_rate",
+    "byte_rate",
+    "syn_count",
+    "ack_count",
+    "rst_count",
+    "fin_count",
+    "psh_count",
+    "fwd_packets",
+    "bwd_packets",
+    "fwd_bytes",
+    "bwd_bytes",
+    "mean_iat",
+    "mean_packet_size",
+    "std_packet_size",
+    "iat_jitter_score",
+    "bytes_out_ratio",
+    "dns_entropy",
+    "is_encrypted",
+    "was_missing"
+  ],
+  "fit_target": "benign_train_split_only"
+}

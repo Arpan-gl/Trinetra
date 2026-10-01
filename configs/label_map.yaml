@@ -1,0 +1,115 @@
+# ==============================================================================
+# PassiveSentinel Unified Threat Taxonomy Label Map
+# Standardizes all raw dataset labels to the 7 canonical classes:
+# [benign, ddos, beaconing, dga_tunnel, encrypted_malware, recon_scan, exfiltration]
+# ==============================================================================
+
+version: "1.0"
+
+canonical_classes:
+  0: "benign"
+  1: "ddos"
+  2: "beaconing"
+  3: "dga_tunnel"
+  4: "encrypted_malware"
+  5: "recon_scan"
+  6: "exfiltration"
+
+class_to_id:
+  benign: 0
+  ddos: 1
+  beaconing: 2
+  dga_tunnel: 3
+  encrypted_malware: 4
+  recon_scan: 5
+  exfiltration: 6
+
+dataset_mappings:
+  # NetFlow-v3 / UNSW-NB15 / BoT-IoT / CICIDS2018 / ToN-IoT mappings
+  raw_attack_strings:
+    # 0. Benign
+    "Benign": "benign"
+    "BENIGN": "benign"
+    "Normal": "benign"
+    "0": "benign"
+
+    # 1. DDoS / DoS
+    "DDoS": "ddos"
+    "VOLUMETRIC_PROTOCOL_DDOS": "ddos"
+    "DoS": "ddos"
+    "DDoS attacks-LOIC-HTTP": "ddos"
+    "DDoS_attacks-LOIC-HTTP": "ddos"
+    "DDOS attack-HOIC": "ddos"
+    "DDOS_attack-HOIC": "ddos"
+    "DDOS attack-LOIC-UDP": "ddos"
+    "DDOS_attack-LOIC-UDP": "ddos"
+    "DoS attacks-Hulk": "ddos"
+    "DoS_attacks-Hulk": "ddos"
+    "DoS attacks-SlowHTTPTest": "ddos"
+    "DoS_attacks-SlowHTTPTest": "ddos"
+    "DoS attacks-GoldenEye": "ddos"
+    "DoS_attacks-GoldenEye": "ddos"
+    "DoS attacks-Slowloris": "ddos"
+    "DoS_attacks-Slowloris": "ddos"
+    "UDP-Lag": "ddos"
+    "SYN": "ddos"
+    "MSSQL": "ddos"
+    "LDAP": "ddos"
+    "NetBIOS": "ddos"
+    "SNMP": "ddos"
+    "SSDP": "ddos"
+
+    # 2. Botnet & C2 Beaconing
+    "Bot": "beaconing"
+    "BOTNET_C2_BEACONING": "beaconing"
+    "Botnet": "beaconing"
+    "CTU-13": "beaconing"
+    "C&C": "beaconing"
+    "C2": "beaconing"
+
+    # 3. DGA & DNS Tunnelling
+    "DNS_TUNNEL_DGA": "dga_tunnel"
+    "dga": "dga_tunnel"
+    "dns_tunnel": "dga_tunnel"
+    "dnscat2": "dga_tunnel"
+    "iodine": "dga_tunnel"
+    "dga_tinba": "dga_tunnel"
+    "dga_matsnu": "dga_tunnel"
+    "dga_suppobox": "dga_tunnel"
+    "dga_cryptolocker": "dga_tunnel"
+    "dga_gozi": "dga_tunnel"
+    "dga_simda": "dga_tunnel"
+
+    # 4. Malware in Encrypted Sessions
+    "MALWARE_ENCRYPTED": "encrypted_malware"
+    "Infilteration": "encrypted_malware"
+    "Infiltration": "encrypted_malware"
+    "Exploits": "encrypted_malware"
+    "Fuzzers": "encrypted_malware"
+    "Backdoor": "encrypted_malware"
+    "Backdoors": "encrypted_malware"
+    "Generic": "encrypted_malware"
+    "Shellcode": "encrypted_malware"
+    "Worms": "encrypted_malware"
+    "Heartbleed": "encrypted_malware"
+    "ransomware": "encrypted_malware"
+    "trojan": "encrypted_malware"
+
+    # 5. Reconnaissance & Port Scanning
+    "RECON_PORTSCAN": "recon_scan"
+    "Reconnaissance": "recon_scan"
+    "scanning": "recon_scan"
+    "PortScan": "recon_scan"
+    "OS_Fingerprinting": "recon_scan"
+    "Service_Scan": "recon_scan"
+
+    # 6. Data Exfiltration
+    "DATA_EXFILTRATION": "exfiltration"
+    "exfiltration": "exfiltration"
+    "data_exfiltration": "exfiltration"
+    "SQL Injection": "exfiltration"
+    "Brute Force -Web": "exfiltration"
+    "Brute Force -XSS": "exfiltration"
+    "Analysis": "exfiltration"
+    "FTP-BruteForce": "exfiltration"
+    "SSH-Bruteforce": "exfiltration"

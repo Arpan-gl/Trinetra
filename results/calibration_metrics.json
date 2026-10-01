@@ -1,0 +1,7 @@
+{
+  "ece_before_calibration": 0.7995,
+  "ece_after_calibration": 0.6105,
+  "brier_before_calibration": 1.5885,
+  "brier_after_calibration": 1.2667,
+  "temperature_fitted": 1.5761
+}

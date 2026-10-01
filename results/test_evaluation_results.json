@@ -1,0 +1,67 @@
+{
+  "execution_seed": 42,
+  "temperature_calibrated": 1.3343662023544312,
+  "dataset_flows_total": 152620,
+  "test_metrics": {
+    "macro_f1": 0.4831,
+    "weighted_f1": 0.6023,
+    "matthews_corrcoef": 0.5386,
+    "per_class": {
+      "benign": {
+        "precision": 0.6823079937304075,
+        "recall": 0.9738534675615212,
+        "f1-score": 0.8024193548387096,
+        "support": 7152.0
+      },
+      "ddos": {
+        "precision": 0.787917737789203,
+        "recall": 0.8633802816901408,
+        "f1-score": 0.8239247311827957,
+        "support": 710.0
+      },
+      "beaconing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 288.0
+      },
+      "dga_tunnel": {
+        "precision": 0.9640491958372753,
+        "recall": 0.567056204785754,
+        "f1-score": 0.7140854940434478,
+        "support": 1797.0
+      },
+      "encrypted_malware": {
+        "precision": 0.4839164123033576,
+        "recall": 0.9011805859204197,
+        "f1-score": 0.6296975252062328,
+        "support": 2287.0
+      },
+      "recon_scan": {
+        "precision": 0.7707703927492447,
+        "recall": 0.27432795698924733,
+        "f1-score": 0.40463917525773196,
+        "support": 7440.0
+      },
+      "exfiltration": {
+        "precision": 0.0046641791044776115,
+        "recall": 0.014367816091954023,
+        "f1-score": 0.007042253521126761,
+        "support": 348.0
+      },
+      "accuracy": 0.6345020477474778,
+      "macro avg": {
+        "precision": 0.5276608445019951,
+        "recall": 0.5134523304341482,
+        "f1-score": 0.48311550486429217,
+        "support": 20022.0
+      },
+      "weighted avg": {
+        "precision": 0.6999578694051698,
+        "recall": 0.6345020477474778,
+        "f1-score": 0.6023467099206794,
+        "support": 20022.0
+      }
+    }
+  }
+}

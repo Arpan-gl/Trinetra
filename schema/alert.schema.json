@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PassiveSentinelAlertRecord",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "alert_id",
+    "timestamp",
+    "first_seen",
+    "last_seen",
+    "flow_id",
+    "threat_class",
+    "confidence",
+    "severity",
+    "evidence",
+    "recommended_action",
+    "latency_ms"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "alert_id": {
+      "type": "string",
+      "pattern": "^a-[0-9a-zA-Z_-]+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "first_seen": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_seen": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "flow_id": {
+      "type": "string"
+    },
+    "threat_class": {
+      "type": "string",
+      "enum": [
+        "ddos",
+        "beaconing",
+        "dga_tunnel",
+        "encrypted_malware",
+        "recon_scan",
+        "exfiltration",
+        "anomaly"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "severity": {
+      "type": "object",
+      "required": ["level", "score"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 10.0
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["detector_scores"],
+      "properties": {
+        "detector_scores": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "recommended_action": {
+      "type": "string"
+    },
+    "latency_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

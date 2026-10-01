@@ -1,0 +1,52 @@
+[
+  {
+    "offered_rate": 1000,
+    "achieved_rate": 1000,
+    "drops": 0,
+    "p50_latency_ms": 0.16,
+    "p95_latency_ms": 0.2,
+    "p99_latency_ms": 0.2,
+    "cpu_percent": 0.0,
+    "rss_mb": 461.7
+  },
+  {
+    "offered_rate": 5000,
+    "achieved_rate": 5000,
+    "drops": 0,
+    "p50_latency_ms": 0.65,
+    "p95_latency_ms": 0.66,
+    "p99_latency_ms": 0.66,
+    "cpu_percent": 0.0,
+    "rss_mb": 462.2
+  },
+  {
+    "offered_rate": 10000,
+    "achieved_rate": 10000,
+    "drops": 0,
+    "p50_latency_ms": 1.16,
+    "p95_latency_ms": 1.22,
+    "p99_latency_ms": 1.22,
+    "cpu_percent": 0.0,
+    "rss_mb": 462.8
+  },
+  {
+    "offered_rate": 20000,
+    "achieved_rate": 20000,
+    "drops": 0,
+    "p50_latency_ms": 1.07,
+    "p95_latency_ms": 1.08,
+    "p99_latency_ms": 1.08,
+    "cpu_percent": 0.0,
+    "rss_mb": 462.8
+  },
+  {
+    "offered_rate": 50000,
+    "achieved_rate": 50000,
+    "drops": 0,
+    "p50_latency_ms": 1.17,
+    "p95_latency_ms": 1.28,
+    "p99_latency_ms": 1.29,
+    "cpu_percent": 97.7,
+    "rss_mb": 462.9
+  }
+]
