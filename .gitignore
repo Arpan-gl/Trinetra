@@ -1,0 +1,71 @@
+# ==========================================
+# Trinetra - Git Ignore Rules (SIH PS 26145)
+# ==========================================
+
+# 1. Dataset & Data Storage (Prevent uploading multi-gigabyte datasets)
+data/
+*.csv
+*.parquet
+*.pcap
+*.pcapng
+*.pcap.gz
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+
+# 2. Machine Learning Model Weights & Checkpoints
+models/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+*.bin
+
+# 3. Python Cache & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# 4. Logs & Task Outputs
+*.log
+logs/
+
+# 5. OS and IDE Artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 6. Scratch & Temp Directories
+scratch/
+tmp/
+temp/
