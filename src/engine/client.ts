@@ -79,7 +79,7 @@ export class EngineClient {
 
     // Wait for READY status
     await new Promise<void>((resolve, reject) => {
-      const timer = setTimeout(() => reject(new Error("Engine startup timed out")), 15000);
+      const timer = setTimeout(() => reject(new Error("Engine startup timed out")), 45000);
       this.pendingRequests.set("READY", {
         resolve: () => {
           clearTimeout(timer);
