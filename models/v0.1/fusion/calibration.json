@@ -1,0 +1,7 @@
+{
+  "method": "temperature_scaling",
+  "temperature": 1.06356,
+  "validation_metric": "cross_entropy_loss",
+  "ece_before": 0.7995,
+  "ece_after": 0.6105
+}

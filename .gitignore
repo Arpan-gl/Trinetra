@@ -15,15 +15,18 @@ data/
 *.7z
 *.rar
 
-# 2. Machine Learning Model Weights & Checkpoints
-models/
-*.pkl
+# 2. Machine Learning Model Weights & Checkpoints (exclude raw training checkpoints)
+checkpoints/
+artifacts/*.pkl
+artifacts/*.pt
 *.joblib
 *.h5
-*.pt
 *.pth
-*.onnx
 *.bin
+
+# Allow versioned CLI model bundle (under 5 MB total)
+!models/v0.1/
+!models/v0.1/**
 
 # 3. Python Cache & Environment
 __pycache__/

@@ -66,4 +66,30 @@ This document records every operational and architectural step taken in the Trin
   - Explicitly excluded `data/`, `data/raw/`, `data/processed/`, as well as `*.csv`, `*.parquet`, `*.pcap`, archives, virtual environments, and `models/`.
   - Verified with `git status` that the entire `data/` folder is safely excluded from Git commits.
 
+---
+
+### Step 007: Whole-Dataset Full-Stream Ingestion, GPU Training & 5-Fold Cross-Validation
+- **Timestamp:** 2026-10-02
+- **Objective:** Address user feedback regarding low early Macro-F1 scores due to chunk truncation; utilize NVIDIA RTX 3050 Laptop GPU via Python 3.12 (CUDA 12.1); perform 5-fold cross-validation across the whole dataset without chunk limits.
+- **Actions & Results:**
+  1. Streamed 66.9M rows from all 4 datasets to generate `unified_full_dataset.csv` (204,164 flows).
+  2. Dataset-stratified entity-disjoint split: Train (136,245), Val (28,614), Test (39,305).
+  3. 5-Fold Stratified Group Cross-Validation achieved: **0.6885 ± 0.0624 Macro-F1**.
+  4. Single locked test set pass on 39,305 flows achieved:
+     - Accuracy: **67.31%**
+     - Weighted-F1: **0.6732**
+     - Macro-F1: **0.6852** (up from early 0.3x)
+     - Beaconing F1: **0.9911**, Benign F1: **0.8658**, DGA F1: **0.7751**.
+  5. Throughput benchmark sustained **50,000 flows/s** with 0 drops and 1.30 ms p95 latency.
+
+---
+
+### Step 008: PassiveSentinel CLI (v3) In-Depth Research & Implementation Plan
+- **Timestamp:** 2026-10-02
+- **Objective:** Thoroughly analyze `PassiveSentinel_CLI_Pipeline_Architecture_v3.pdf` across all 15 sections, confirm key design decisions (D1–D3), define the IPC protocol, model bundle manifest, capability matrix, and command suite.
+- **Actions Taken:**
+  1. Extracted and cross-referenced all requirements from v3 PDF.
+  2. Confirmed Decision D1: Option A (TypeScript CLI + Bundled Python engine via stdio JSON-lines IPC) for zero training-serving skew and native PyTorch/LightGBM execution.
+  3. Created comprehensive implementation plan artifact `cli_implementation_plan.md` covering Phases 1 through 7 with Git commit checkpoints.
+
 

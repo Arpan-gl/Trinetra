@@ -1,0 +1,70 @@
+{
+  "bundle_version": "0.1.0",
+  "created_utc": "2026-10-02T14:00:00Z",
+  "min_cli_version": "0.1.0",
+  "alert_schema_version": "1.0",
+  "feature_schema": {
+    "file": "features.yaml",
+    "sha256": "29ef26e5e8ac43fd17bf89e5b64888090a08c491dafbea04c17d309cde22071a"
+  },
+  "preprocess": [
+    {
+      "file": "preprocess/scaler.json",
+      "sha256": "0934d1fbc95a92e81365f387f521d7891b6f1682727f659b075b16a823798671"
+    }
+  ],
+  "models": [
+    {
+      "id": "L5a_stat_gbm",
+      "format": "pickle",
+      "file": "specialists/stat_gbm.pkl",
+      "sha256": "2d126d27db87721945afae45f9ff1256af7f6b7520ee7d89b923bc891b667597"
+    },
+    {
+      "id": "L5e_autoencoder",
+      "format": "pytorch",
+      "file": "specialists/autoencoder.pt",
+      "sha256": "9cf4e641d4cc076099b27e67dc14bf3b1ad8d744975bce7e8f847ac3e33a621f"
+    },
+    {
+      "id": "L6_fusion",
+      "format": "pytorch",
+      "file": "fusion/unified_model.pt",
+      "sha256": "c7f8704ea91ecfd3320a9e26ddf4b1cbc6279801d001d85035357323edea13fe"
+    }
+  ],
+  "thresholds": {
+    "file": "thresholds.json",
+    "sha256": "7e5dde19b249a3966eba9798dbb16fdbaa826b4be73443cf1ac033e1d82412e2"
+  },
+  "calibration": {
+    "temperature": 1.06356,
+    "file": "fusion/calibration.json",
+    "sha256": "b896bcc79974590f3ac4d692495ebc26e06aa447482063242e1b45be785794c6"
+  },
+  "label_map": [
+    "benign",
+    "ddos",
+    "beaconing",
+    "dga_tunnel",
+    "encrypted_malware",
+    "recon_scan",
+    "exfiltration"
+  ],
+  "training": {
+    "split_manifest_sha256": "6675901c772d346989ec404550d9e784c21e272e59fed0cf1e8376c4944113aa",
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "window_config": {
+    "ddos_s": 1,
+    "scan_s": 10,
+    "exfil_s": 60,
+    "watermark_s": 5
+  }
+}

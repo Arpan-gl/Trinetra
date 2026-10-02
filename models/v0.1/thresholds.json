@@ -1,0 +1,32 @@
+{
+  "threat_classes": {
+    "benign": 0.5,
+    "ddos": 0.55,
+    "beaconing": 0.6,
+    "dga_tunnel": 0.55,
+    "encrypted_malware": 0.5,
+    "recon_scan": 0.55,
+    "exfiltration": 0.45
+  },
+  "anomaly_gate": {
+    "l5e_threshold_p99_5": 4.700581
+  },
+  "severity_bands": {
+    "low": {
+      "min": 0.0,
+      "max": 4.0
+    },
+    "medium": {
+      "min": 4.0,
+      "max": 7.0
+    },
+    "high": {
+      "min": 7.0,
+      "max": 9.0
+    },
+    "critical": {
+      "min": 9.0,
+      "max": 10.0
+    }
+  }
+}
