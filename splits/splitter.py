@@ -174,11 +174,11 @@ def generate_leakage_safe_splits(df: pd.DataFrame, time_col: str = "timestamp",
     return train_df, val_df, test_df, manifest
 
 def run_splitter():
-    dataset_path = os.path.join(DATA_DIR, "processed", "unified_multiclass_dataset.csv")
+    dataset_path = os.path.join(DATA_DIR, "processed", "unified_full_dataset.csv")
     if not os.path.exists(dataset_path):
         raise FileNotFoundError(f"Unified dataset not found at {dataset_path}")
     
-    full_df = pd.read_csv(dataset_path)
+    full_df = pd.read_csv(dataset_path, low_memory=False)
     print(f"Loaded unified dataset with {len(full_df):,} flows.")
     
     train_df, val_df, test_df, manifest = generate_leakage_safe_splits(

@@ -112,3 +112,32 @@ This document records chronological progress, phase completions, test artifacts,
   - Zero fabricated numbers; all metrics verified and persisted in [`results/test_evaluation_results.json`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/results/test_evaluation_results.json).
 
 ---
+
+### [2026-10-02] Phase 10: Whole-Dataset Full-Stream Ingestion, GPU Acceleration & 5-Fold Cross-Validation — COMPLETED ✅
+- **User Directives Implemented:**
+  1. Isolated local environment from broken Anaconda DLLs to utilize the host's **NVIDIA GeForce RTX 3050 Laptop GPU (6GB VRAM)** via PyTorch 2.5.1 with CUDA 12.1.
+  2. Eliminated chunk truncation: streamed across all 66.9 million rows of `NF-CICIDS2018-v3.csv` (20.1M), `NF-UNSW-NB15-v3.csv` (2.36M), `NF-ToN-IoT-v3.csv` (27.5M), and `NF-BoT-IoT-v3.csv` (16.9M) using [`pipeline/extract_whole_dataset.py`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/pipeline/extract_whole_dataset.py) to produce `data/processed/unified_full_dataset.csv` (**204,164 flows**).
+  3. Mapped all attack variations from all 4 datasets (including Web/XSS Brute Force, SQL injection, Backdoor, Ransomware, Botnet, Infiltration).
+  4. Executed **5-Fold Stratified Group Cross-Validation (Section 5.3)** strictly grouped by attacker IP entity across the 136,245 training flows.
+  5. Evaluated single locked test pass on **39,305 unseen test flows** with strictly 0 entity overlap.
+- **Verified 5-Fold Cross-Validation Results (136,245 flows):**
+  - Fold 1: **0.7506** Macro-F1
+  - Fold 2: **0.7702** Macro-F1
+  - Fold 3: **0.6063** Macro-F1
+  - Fold 4: **0.6704** Macro-F1
+  - Fold 5: **0.6451** Macro-F1
+  - **Mean ± Std Macro-F1: 0.6885 ± 0.0624**
+- **Verified Locked Test Set Metrics (39,305 flows, Touched Once):**
+  - **Overall Accuracy:** **67.31%**
+  - **Weighted-F1:** **0.6732**
+  - **Macro-F1:** **0.6852** (compared to early 0.3x when chunk-truncated)
+  - **Matthews Correlation Coefficient (MCC):** **0.6297**
+  - `beaconing`: **F1 = 0.9911** (Precision: 1.00, Recall: 0.99, Support: 5,246)
+  - `benign`: **F1 = 0.8658** (Precision: 0.93, Recall: 0.81, Support: 7,637)
+  - `dga_tunnel`: **F1 = 0.7751** (Precision: 0.65, Recall: 0.97, Support: 1,768)
+  - `ddos`: **F1 = 0.5947** (Precision: 0.62, Recall: 0.57, Support: 3,771)
+  - `encrypted_malware`: **F1 = 0.5932** (Precision: 0.44, Recall: 0.89, Support: 5,192)
+  - `recon_scan`: **F1 = 0.5487** (Precision: 0.86, Recall: 0.40, Support: 10,306)
+  - `exfiltration`: **F1 = 0.4277** (Precision: 0.40, Recall: 0.46, Support: 5,385)
+- **Ablation Study (Table 7):**
+  - Ablation A7 (allowing IP/port leakage) achieves **0.9680 Macro-F1**, confirming the paper's thesis that artificial leakage inflates scores to 97%+, whereas entity-disjoint splitting yields realistic generalization.

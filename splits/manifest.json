@@ -2,44 +2,44 @@
   "version": "2.0",
   "purge_gap_seconds": 1800,
   "entity_key": "entity_key (src_ip / host-pair for malware)",
-  "total_records": 152620,
+  "total_records": 204164,
   "realized_ratios": {
-    "train_ratio": 0.7518,
-    "val_ratio": 0.117,
-    "test_ratio": 0.1312
+    "train_ratio": 0.6673,
+    "val_ratio": 0.1402,
+    "test_ratio": 0.1925
   },
   "counts": {
-    "train": 114737,
-    "val": 17861,
-    "test": 20022
+    "train": 136245,
+    "val": 28614,
+    "test": 39305
   },
   "class_distribution": {
     "train": {
-      "benign": 26988,
-      "exfiltration": 19033,
-      "ddos": 18290,
-      "recon_scan": 15874,
-      "beaconing": 14000,
-      "encrypted_malware": 10658,
-      "dga_tunnel": 9894
+      "ddos": 27058,
+      "benign": 24816,
+      "encrypted_malware": 20258,
+      "beaconing": 19988,
+      "recon_scan": 19154,
+      "exfiltration": 15028,
+      "dga_tunnel": 9943
     },
     "val": {
-      "benign": 7099,
-      "recon_scan": 5217,
-      "encrypted_malware": 2556,
-      "dga_tunnel": 1771,
-      "ddos": 703,
-      "beaconing": 288,
-      "exfiltration": 227
+      "benign": 7547,
+      "encrypted_malware": 5097,
+      "beaconing": 4766,
+      "recon_scan": 4732,
+      "ddos": 4171,
+      "dga_tunnel": 1751,
+      "exfiltration": 550
     },
     "test": {
-      "recon_scan": 7440,
-      "benign": 7152,
-      "encrypted_malware": 2287,
-      "dga_tunnel": 1797,
-      "ddos": 710,
-      "exfiltration": 348,
-      "beaconing": 288
+      "recon_scan": 10306,
+      "benign": 7637,
+      "exfiltration": 5385,
+      "beaconing": 5246,
+      "encrypted_malware": 5192,
+      "ddos": 3771,
+      "dga_tunnel": 1768
     }
   },
   "leakage_verification": {
@@ -49,8 +49,8 @@
     "zero_leakage_guaranteed": true
   },
   "file_hashes": {
-    "train_sha256": "781ea2b45c410ba6dcffb4be3426d7f89334245b9702873a8ce8e607b7b9ab00",
-    "val_sha256": "c82eea78d617417627c064b5a1859933d21b4bd5206cf5562967dfc9e7a1f5cb",
-    "test_sha256": "626e25583cd6d6e76cee5b6aede372a84b6151c2d20794c48e40aa84b4c59b05"
+    "train_sha256": "0effc4cb397e87eb4c31878e1636acfd79818f1fdbd43acd090911a072d5602f",
+    "val_sha256": "edc23fd83fe8a59d6a498df9b7eecb8847b6a4cb4efff9f6879450c2201802f5",
+    "test_sha256": "2b0ec034d656ef11e49ab2e609cf7597db3b9e7ea86d0075295ab85530e8757e"
   }
 }

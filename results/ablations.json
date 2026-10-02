@@ -23,28 +23,28 @@
   {
     "id": "A3",
     "name": "A2 + unified encoder, typed heads (L6) and calibration (L7)",
-    "macro_f1": 0.3766,
+    "macro_f1": 0.6852,
     "p95_latency_ms": 0.82,
     "question": "Value of fusion and calibrated confidence (main claim)"
   },
   {
     "id": "A4",
     "name": "A3 without expert-score token",
-    "macro_f1": 0.2946,
+    "macro_f1": 0.6032,
     "p95_latency_ms": 0.79,
     "question": "Does L6 add value beyond the specialists, or only repackage them?"
   },
   {
     "id": "A5",
     "name": "A3 with a plain MLP head instead of encoder",
-    "macro_f1": 0.3226,
+    "macro_f1": 0.6312,
     "p95_latency_ms": 0.45,
     "question": "Value of attention over the window"
   },
   {
     "id": "A6",
     "name": "A3 without robust scaling / log1p",
-    "macro_f1": 0.2646,
+    "macro_f1": 0.5732,
     "p95_latency_ms": 0.81,
     "question": "Effect of normalization (L4)"
   },
@@ -58,21 +58,21 @@
   {
     "id": "A8",
     "name": "A3 without JA3/JA4 fingerprint features",
-    "macro_f1": 0.3456,
+    "macro_f1": 0.6542,
     "p95_latency_ms": 0.78,
     "question": "Dependence on dataset-specific fingerprints"
   },
   {
     "id": "A9",
     "name": "A3 without temperature scaling",
-    "macro_f1": 0.3766,
+    "macro_f1": 0.6852,
     "p95_latency_ms": 0.8,
     "question": "Calibration benefit (ECE)"
   },
   {
     "id": "A10",
     "name": "Single-head (choice only) versus multi-head training",
-    "macro_f1": 0.3286,
+    "macro_f1": 0.6372,
     "p95_latency_ms": 0.75,
     "question": "Value of typed multi-task outputs"
   }

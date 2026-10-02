@@ -94,6 +94,7 @@ dataset_mappings:
     "Heartbleed": "encrypted_malware"
     "ransomware": "encrypted_malware"
     "trojan": "encrypted_malware"
+    "mitm": "encrypted_malware"
 
     # 5. Reconnaissance & Port Scanning
     "RECON_PORTSCAN": "recon_scan"
@@ -108,8 +109,15 @@ dataset_mappings:
     "exfiltration": "exfiltration"
     "data_exfiltration": "exfiltration"
     "SQL Injection": "exfiltration"
+    "SQL_Injection": "exfiltration"
     "Brute Force -Web": "exfiltration"
+    "Brute_Force_-Web": "exfiltration"
     "Brute Force -XSS": "exfiltration"
+    "Brute_Force_-XSS": "exfiltration"
     "Analysis": "exfiltration"
     "FTP-BruteForce": "exfiltration"
     "SSH-Bruteforce": "exfiltration"
+    "password": "exfiltration"
+    "injection": "exfiltration"
+    "xss": "exfiltration"
+    "Theft": "exfiltration"
