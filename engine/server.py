@@ -12,6 +12,8 @@ import time
 import argparse
 import traceback
 import pandas as pd
+import numpy as np
+import torch
 from typing import Dict, Any, Optional
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -126,13 +128,15 @@ class EngineServer:
             labels_map = self.bundle.manifest.get("label_map", [])
             label_to_idx = {name: i for i, name in enumerate(labels_map)}
 
-            if "attack_family" in df.columns:
+            if "threat_class" in df.columns:
+                y_true = df["threat_class"].map(label_to_idx).fillna(0).astype(int).values
+            elif "attack_family" in df.columns:
                 y_true = df["attack_family"].map(label_to_idx).fillna(0).astype(int).values
             elif os.path.exists(labels_path):
                 labels_df = pd.read_csv(labels_path)
                 y_true = labels_df.iloc[:, 0].map(label_to_idx).fillna(0).astype(int).values
             else:
-                emit("ERROR", {"code": 2, "message": f"Ground-truth labels missing: {labels_path}"})
+                emit("ERROR", {"code": 2, "message": f"Ground-truth labels missing: please specify --labels <file>"})
                 return
 
             self.pipeline = RuntimePipeline(self.bundle, input_type="flow")

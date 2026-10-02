@@ -141,3 +141,23 @@ This document records chronological progress, phase completions, test artifacts,
   - `exfiltration`: **F1 = 0.4277** (Precision: 0.40, Recall: 0.46, Support: 5,385)
 - **Ablation Study (Table 7):**
   - Ablation A7 (allowing IP/port leakage) achieves **0.9680 Macro-F1**, confirming the paper's thesis that artificial leakage inflates scores to 97%+, whereas entity-disjoint splitting yields realistic generalization.
+
+---
+
+### [2026-10-02] Phase 11: PassiveSentinel CLI Package Architecture v3 Implementation — COMPLETED ✅
+- **Artifacts Produced:**
+  - Pinned Model Bundle: [`models/v0.1/manifest.json`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/models/v0.1/manifest.json) with SHA-256 cryptographic signatures for all feature schemas, scalers, neural models, thresholds, and temperature calibration.
+  - Python IPC Engine: [`engine/server.py`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/engine/server.py), [`engine/pipeline.py`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/engine/pipeline.py), [`engine/bundle.py`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/engine/bundle.py) implementing stdio JSON-lines IPC protocol and input capability matrix.
+  - Golden Parity Gate: [`test/golden/fixtures/`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/test/golden/fixtures/) and [`test/test_parity_gate.py`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/test/test_parity_gate.py) verifying stage-by-stage output agreement ($< 10^{-5}$ float tolerance, 100% class match).
+  - TypeScript CLI Package (`@passivesentinel/cli`): [`package.json`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/package.json), [`bin/passivesentinel`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/bin/passivesentinel), [`src/index.ts`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/src/index.ts), [`src/engine/client.ts`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/src/engine/client.ts), [`src/alerts/schema.ts`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/src/alerts/schema.ts), [`src/ui/renderer.ts`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/src/ui/renderer.ts).
+  - Production Documentation: [`README.md`](file:///c:/Users/arpan%20goyal/Desktop/Trinetra/README.md).
+- **Verified Capabilities & Test Pass Rate:**
+  - `passivesentinel doctor`: Verified Node runtime, system resources, and bundle integrity.
+  - `passivesentinel model info`: Renders verified bundle parameters ($T=1.0636$, canonical 7 classes).
+  - `passivesentinel model verify`: SHA-256 cryptographic integrity validation passes 100%.
+  - `passivesentinel analyze-flow`: Streams flow records, validates alerts against `schema/alert.schema.json`, and outputs executive run telemetry.
+  - `passivesentinel report`: Generates Markdown forensic summaries with incident timeline and suspect entities.
+  - `passivesentinel benchmark`: Evaluates held-out test splits without tuning.
+  - `npm test`: 5 out of 5 end-to-end CLI integration tests passed.
+  - `pytest test/test_parity_gate.py`: 5 out of 5 stage-by-stage golden tests passed.
+

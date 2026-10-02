@@ -92,4 +92,17 @@ This document records every operational and architectural step taken in the Trin
   2. Confirmed Decision D1: Option A (TypeScript CLI + Bundled Python engine via stdio JSON-lines IPC) for zero training-serving skew and native PyTorch/LightGBM execution.
   3. Created comprehensive implementation plan artifact `cli_implementation_plan.md` covering Phases 1 through 7 with Git commit checkpoints.
 
+---
+
+### Step 009: End-to-End Implementation of @passivesentinel/cli Package
+- **Timestamp:** 2026-10-02
+- **Objective:** Implement complete production command-line interface according to Architecture v3.
+- **Actions & Results:**
+  1. Built versioned model bundle `models/v0.1/` with cryptographic `manifest.json`.
+  2. Built high-throughput Python stdio JSON-lines IPC server (`engine/server.py`) and capability-gated pipeline (`engine/pipeline.py`).
+  3. Built and executed stage-by-stage golden parity gate (`test/test_parity_gate.py`) - all 5 tests passed ($< 10^{-5}$ tolerance).
+  4. Built TypeScript CLI layer: `src/index.ts`, `src/engine/client.ts`, `src/alerts/schema.ts`, `src/alerts/sink.ts`, `src/ui/renderer.ts`, and command handlers (`analyze`, `replay`, `analyze-flow`, `model`, `benchmark`, `report`, `doctor`).
+  5. Built executable `bin/passivesentinel` and compiled with `tsc`.
+  6. Tested all commands end-to-end; verified 5/5 integration tests passing with `npm test`.
+
 

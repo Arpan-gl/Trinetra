@@ -1,0 +1,41 @@
+{
+  "name": "@passivesentinel/cli",
+  "version": "0.1.0",
+  "description": "Passive streaming network threat intelligence CLI (SIH PS-145)",
+  "main": "dist/index.js",
+  "bin": {
+    "passivesentinel": "./bin/passivesentinel"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "node --experimental-strip-types --test test/test_cli_commands.test.ts"
+  },
+  "keywords": [
+    "network-security",
+    "passive-monitoring",
+    "data-diode",
+    "threat-intelligence",
+    "intrusion-detection",
+    "cybersecurity",
+    "sih2026"
+  ],
+  "author": "PassiveSentinel Team",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "chalk": "^4.1.2",
+    "cli-progress": "^3.12.0",
+    "commander": "^12.1.0",
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/node": "^22.5.5",
+    "typescript": "^5.6.2"
+  }
+}
