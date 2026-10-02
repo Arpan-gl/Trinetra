@@ -17,7 +17,7 @@ import math
 import sqlite3
 import jsonschema
 from datetime import datetime, timezone
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA_PATH = os.path.join(BASE_DIR, "schema", "alert.schema.json")
@@ -69,11 +69,11 @@ class AlertGeneratorL8:
         score = 10.0 * (0.5 * confidence + 0.3 * impact + 0.2 * persist_factor)
         score = round(float(np.clip(score, 0.0, 10.0) if 'np' in globals() else max(0.0, min(10.0, score))), 1)
 
-        if score < 3.0:
+        if score < 4.0:
             level = "low"
-        elif score < 6.0:
+        elif score < 7.0:
             level = "medium"
-        elif score < 8.5:
+        elif score < 9.0:
             level = "high"
         else:
             level = "critical"
@@ -83,7 +83,8 @@ class AlertGeneratorL8:
     def create_alert(self, flow_id: str, threat_class: str, confidence: float,
                      first_seen_ms: int, last_seen_ms: int, window_close_ms: int,
                      detector_scores: Dict[str, float], evidence_features: Optional[Dict[str, Any]] = None,
-                     volume_bytes: float = 1000.0) -> Dict[str, Any]:
+                     volume_bytes: float = 1000.0,
+                     detectors_used: Optional[List[str]] = None) -> Dict[str, Any]:
         """
         Creates and validates a complete PassiveSentinel alert record.
         """
@@ -141,6 +142,7 @@ class AlertGeneratorL8:
                 "score": sev_score
             },
             "evidence": evidence,
+            "detectors_used": detectors_used or ["L5a", "L5e", "L6"],
             "recommended_action": rec_action,
             "latency_ms": latency_ms
         }

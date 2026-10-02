@@ -86,6 +86,12 @@
       },
       "additionalProperties": true
     },
+    "detectors_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "recommended_action": {
       "type": "string"
     },
