@@ -11,6 +11,25 @@
     "prepublishOnly": "npm run build",
     "test": "node --experimental-strip-types --test test/test_cli_commands.test.ts"
   },
+  "files": [
+    "bin",
+    "dist",
+    "engine",
+    "models/v0.1",
+    "schema",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arpan-gl/Trinetra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Arpan-gl/Trinetra/issues"
+  },
+  "homepage": "https://github.com/Arpan-gl/Trinetra#readme",
   "keywords": [
     "network-security",
     "passive-monitoring",
