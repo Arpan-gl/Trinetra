@@ -3,7 +3,7 @@
 # ==========================================
 
 # 1. Dataset & Data Storage (Prevent uploading multi-gigabyte datasets)
-data/
+/data/
 *.csv
 *.parquet
 *.pcap
