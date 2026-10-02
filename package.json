@@ -1,11 +1,9 @@
 {
-  "name": "@passivesentinel/cli",
+  "name": "@arpan-gl/passivesentinel",
   "version": "0.1.0",
   "description": "Passive streaming network threat intelligence CLI (SIH PS-145)",
   "main": "dist/index.js",
-  "bin": {
-    "passivesentinel": "./bin/passivesentinel"
-  },
+  "bin": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
@@ -24,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Arpan-gl/Trinetra.git"
+    "url": "git+https://github.com/Arpan-gl/Trinetra.git"
   },
   "bugs": {
     "url": "https://github.com/Arpan-gl/Trinetra/issues"

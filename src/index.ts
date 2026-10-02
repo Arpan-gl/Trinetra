@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * PassiveSentinel - Main CLI Dispatcher (SIH PS-145)
  * Command-line tool wrapping the trained, verified detection pipeline.
